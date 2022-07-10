@@ -5,9 +5,10 @@ const UsersRoutes = express.Router();
 
 
 //Podemos usar la misma ruta para distintos metodos, tanto POST, PUT, DELETE, GET pueden usar la misma ruta dado que son metodos distintos
-UsersRoutes.get('/', getAllUsers);
-UsersRoutes.get('/:id', getUser);
-UsersRoutes.delete('/:id', deleteUser);
+UsersRoutes
+    .get('/', getAllUsers)
+    .get('/:id', getUser)
+    .delete('/:id', deleteUser);
 
 // por ahora solo se contempla la opcion de obtener user/s y borrarlos
 
