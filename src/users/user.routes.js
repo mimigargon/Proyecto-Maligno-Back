@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllUsers, getUser, deleteUser } = require('./user.controller');
+const { getAllUsers, getUser, deleteUser, postUser } = require('./user.controller');
 
 const UsersRoutes = express.Router();
 
@@ -8,7 +8,8 @@ const UsersRoutes = express.Router();
 UsersRoutes
     .get('/', getAllUsers)
     .get('/:id', getUser)
-    .delete('/:id', deleteUser);
+    .delete('/:id', deleteUser)
+    .post('/user', postUser);
 
 // por ahora solo se contempla la opcion de obtener user/s y borrarlos
 

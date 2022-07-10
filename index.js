@@ -3,7 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const UsersRoutes = require('./src/api/users/users.routes');
+const UsersRoutes = require('./src/users/user.routes');
 
 // bbdd pendiente de crear
 const {connectDb} = require('./src/utils/database/database');
@@ -11,7 +11,7 @@ const {connectDb} = require('./src/utils/database/database');
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-//connectDb();
+connectDb();
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'POST, GET, DELETE'); //Definimos los metodos que permitimos para nuestra API
@@ -41,11 +41,11 @@ app.use('/', ( _ , res) => {
     return res.status(200).json("users api working");
 })
 
-app.use('*', ( _ , res, _) => {              //Para las rutas que no estén definidas muestranos un Route not found
+app.use('*', ( _ , res, xy ) => {              //Para las rutas que no estén definidas muestranos un Route not found
     return res.status(404).json('Route not found');
 });
 
-app.use((error, _ , res, _)=>{              //Para cualquier error que suceda en la aplicación
+app.use((error, _ , res, xy)=>{              //Para cualquier error que suceda en la aplicación
     return res.status(error.status || 500).json(error.message || 'Unexpected error');
 })
 

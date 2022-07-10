@@ -39,6 +39,30 @@ const deleteUser = async (req, res, next) => {
     }
 }
 
+const postUser = async (req, res, next) => {
+    const {username, password} = req.body;
 
+    if(!username || !password) {
+        const error = new Error('Email or password is missing');
+        error.status = 400;
+        return next(error);
+    }
 
-module.exports = {getAllUsers, getUser, deleteUser}; //Exportamos las funciones
+    const done = (error, user) => {
+        if (error) {
+            return next(error);
+        }
+
+        req.logIn(user, (error) => {
+            if (error) {
+                return next(error);
+            }
+
+            return res.status(201).json(user);
+        });
+    };
+
+    passport.authenticate('user', done)(req);
+};
+
+module.exports = {getAllUsers, getUser, deleteUser, postUser}; //Exportamos las funciones
