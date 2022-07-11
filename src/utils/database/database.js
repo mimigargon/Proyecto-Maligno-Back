@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
 dotenv.config();
+const urlDb = process.env.MONGO_DB;
 
-const urlDb = process.env.MONGO_DB || 'https://localhost:3000';
+
 
 if(!urlDb) {
     throw new Error('No se reconoce la url de la base de datos. Debes añadirla en un archivo .env bajo el nombre de la variable MONGO_DB')
