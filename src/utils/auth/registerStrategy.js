@@ -41,8 +41,7 @@ const registerStrategy = new LocalStrategy(
         return done(error, null);
       }
 
-      const hash = await bcrypt.hash(password, saltRounds);
-      const user = new User({ ...req.body, email, password: hash, role: 'user' });
+
       const userDB = await user.save();
       userDB.password = "Game Over";
       return done(null, userDB);

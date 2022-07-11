@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 
 app.use(
     cors({   //Definimos las rutas para las que damos permiso a acceder a nuestra API, para que no la bloquee el CORS
-    origin: ['http://localhost:4500', "http://localhost:4200"],    //aqui pondremos la url de nuestra pagina una vez se haga deploy
+    origin: ['http://localhost:4500', "http://localhost:4200", "http://localhost:3000"],    //aqui pondremos la url de nuestra pagina una vez se haga deploy
     credentials: true,
 })
 );
