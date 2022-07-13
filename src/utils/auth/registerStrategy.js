@@ -41,7 +41,6 @@ const registerStrategy = new LocalStrategy(
         return done(error, null);
       }
 
-
       const userDB = await user.save();
       userDB.password = "Game Over";
       return done(null, userDB);
@@ -51,4 +50,4 @@ const registerStrategy = new LocalStrategy(
   }
 );
 
-module.exports = registerStrategy; 
+module.exports = registerStrategy;
