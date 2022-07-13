@@ -4,8 +4,6 @@ const {isAuthenticated} = require('../../utils/middlewares/auth.middlewares');
 
 const UsersRoutes = express.Router();
 
-
-//Podemos usar la misma ruta para distintos metodos, tanto POST, PUT, DELETE, GET pueden usar la misma ruta dado que son metodos distintos
 UsersRoutes
     .get('/', getAllUsers)
     .get('/:id', getUser)
@@ -15,6 +13,6 @@ UsersRoutes
     .post('/login', postLogin)
     .post('/logout', [isAuthenticated], postLogout);
 
-// por ahora solo se contempla la opcion de obtener user/s y borrarlos
+
 
 module.exports = UsersRoutes;
