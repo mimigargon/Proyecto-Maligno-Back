@@ -1,5 +1,5 @@
 const User = require("./user.model");
-const passport = require("passport");
+const passport = require("passport"); 
 
 const getAllUsers = async (req, res, next) => {
   try {
@@ -86,6 +86,7 @@ const postRegister = async (req, res, next) => {
 };
 
 const postLogin = (req, res, next) => {
+  console.log(req.body);
   const done = (error, user) => {
     if (error) {
       return next(error);
@@ -122,4 +123,4 @@ module.exports = {
   postLogin,
   postLogout,
   putUser,
-}; //Exportamos las funciones
+}; 

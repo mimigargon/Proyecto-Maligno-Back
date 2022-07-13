@@ -14,5 +14,4 @@ UsersRoutes
     .post('/logout', [isAuthenticated], postLogout);
 
 
-
 module.exports = UsersRoutes;

@@ -19,7 +19,7 @@ app.disable("x-powered-by");
 connectDb();
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Methods", "POST, GET, DELETE");
+  res.header("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, PATCH");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
